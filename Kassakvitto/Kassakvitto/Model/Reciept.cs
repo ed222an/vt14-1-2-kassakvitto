@@ -33,20 +33,22 @@ namespace Kassakvitto.Model
         // Metod
         public void Calculate(double subtotal)
         {
+            Subtotal = subtotal;
+
             // Bestämmer rabattsatserna.
             if (subtotal < 500)
             {
                 DiscountRate = 0.00;
             }
-            if(subtotal >= 500 && subtotal < 1000)
+            else if(subtotal < 1000)
             {
                 DiscountRate = 0.05;
             }
-            if (subtotal >= 1000 && subtotal < 5000)
+            else if (subtotal < 5000)
             {
                 DiscountRate = 0.10;
             }
-            if (subtotal >= 5000)
+            else
             {
                 DiscountRate = 0.15;
             }
@@ -61,7 +63,6 @@ namespace Kassakvitto.Model
         // Konstruktor
         public Reciept(double subtotal)
         {
-            Subtotal = subtotal;
             Calculate(subtotal);
         }
     }
